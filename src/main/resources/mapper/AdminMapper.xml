@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.mapper.AdminMapper">
+    <select id="find" resultType="Admin">
+        select * from Admin where username=#{username}
+    </select>
+    <select id="findOne" resultType="Admin">
+        select * from Admin where username=#{username} and password=#{password}
+    </select>
+</mapper>

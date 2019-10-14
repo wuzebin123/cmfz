@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.mapper.PictureMapper">
+    <select id="count" resultType="Integer">
+        select count(id) from picture
+    </select>
+    <select id="findAll" resultType="Picture">
+        select * from picture LIMIT #{start},#{rows}
+    </select>
+    <insert id="insert">
+        insert into picture values(#{id},#{title},#{state},#{describe},#{time},#{src})
+    </insert>
+    <delete id="delete">
+        DELETE FROM picture where id=#{id}
+    </delete>
+    <update id="update">
+        update picture set title=#{title},state=#{state},`describe`=#{describe},time=#{time},src=#{src} where id=#{id}
+    </update>
+    <select id="findOne" resultType="Picture">
+        select * from picture where id=#{id}
+    </select>
+
+    <select id="select" resultType="Picture">
+        select * from picture
+    </select>
+</mapper>

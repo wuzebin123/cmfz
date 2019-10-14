@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.mapper.AlbumMapper">
+    <select id="findAll" resultType="Album">
+        select * from album LIMIT #{start},#{rows}
+    </select>
+    <select id="count" resultType="Integer">
+        select count(id) from album
+    </select>
+
+    <insert id="insert">
+        insert into album values(#{id},#{title},#{cover},#{author},#{beam},#{count},#{publish_date},#{content},#{create_date},#{state},#{fraction})
+    </insert>
+    <delete id="delete">
+        DELETE FROM album where id=#{id}
+    </delete>
+    <update id="update">
+        update album set title=#{title},cover=#{cover},author=#{author},beam=#{beam},`count`=#{count},content=#{content},state=#{state},fraction=#{fraction} where id=#{id}
+    </update>
+
+
+    <update id="updateCount">
+        update album set `count`=#{count} where id=#{id}
+    </update>
+
+    <select id="findOne" resultType="Album">
+        select * from album where id=#{id}
+    </select>
+</mapper>
