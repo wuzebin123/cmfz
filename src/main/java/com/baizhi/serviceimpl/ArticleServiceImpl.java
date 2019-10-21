@@ -64,7 +64,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public List<Article> queryByes(String val) {
-        System.out.println("------------------");
+        System.out.println("-----------------");
         HighlightBuilder.Field field = new HighlightBuilder.Field("*");
         field.preTags("<span style='color:red'>");
         field.postTags("<span>");
