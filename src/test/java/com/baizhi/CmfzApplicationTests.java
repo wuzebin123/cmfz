@@ -1,6 +1,10 @@
 package com.baizhi;
 
 
+import com.baizhi.articleRepsitory.ArticleRepository;
+import com.baizhi.entity.Article;
+import com.baizhi.mapper.ArticleMapper;
+import com.baizhi.service.ArticleService;
 import io.goeasy.GoEasy;
 import net.minidev.json.JSONArray;
 import org.jaudiotagger.audio.AudioFile;
@@ -30,7 +34,15 @@ import java.util.Random;
 public class CmfzApplicationTests {
 
     @Autowired
+    private ArticleRepository articleRepository;
+
+    @Autowired
+    private ArticleMapper articleMapper;
+
+    @Autowired
     private HttpSession session;
+    @Autowired
+    private ArticleService articleService;
 
     @Test
     public void contextLoads() {
@@ -76,6 +88,23 @@ public class CmfzApplicationTests {
             GoEasy goEasy = new GoEasy("http://rest-hangzhou.goeasy.io", "BC-41105467e17d4745869fc7051df656ee");
             goEasy.publish("164channel", s);
             Thread.sleep(2000);
+        }
+    }
+
+    @Test
+    public void test2() {
+        List<Article> articles = articleMapper.queryAll(1, 100);
+        for (Article article : articles) {
+            articleRepository.save(article);
+            System.out.println(article);
+        }
+    }
+
+    @Test
+    public void name() {
+        List<Article> articles = articleService.queryByes("国家");
+        for (Article article : articles) {
+            System.out.println(article);
         }
     }
 }

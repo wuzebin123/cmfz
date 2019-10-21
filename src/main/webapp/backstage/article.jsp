@@ -15,7 +15,7 @@
                 {
                     name: "",
                     formatter: function (a, b, c) {
-                        return "<a  href='#' onclick=\"lo okModal('" + c.id + "')\" >查看详情</a>"
+                        return "<a  href='#' onclick=\"lookModal('" + c.id + "')\" >查看详情</a>"
                     }
                 }
             ],
@@ -103,6 +103,13 @@
         })
     }
 
+    $(function () {
+        $("#basic-addon2").click(function () {
+            var esval = $("#esValue").val();
+            $('#ss').load('es.jsp?val=' + esval)
+        })
+    })
+
 
 </script>
 
@@ -114,6 +121,10 @@
                                                   data-toggle="tab">文章列表</a></li>
         <li role="presentation"><a href="#profile" onclick="showModal()" aria-controls="profile" role="tab"
                                    data-toggle="tab">添加文章</a></li>
+        <div class="input-group" style="width: 30%; float: right">
+            <input id="esValue" type="text" class="form-control" placeholder="请输入关键字" aria-describedby="basic-addon2">
+            <span class="input-group-addon" id="basic-addon2"><a>搜索</a></span>
+        </div>
     </ul>
 
 </div>
