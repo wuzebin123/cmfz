@@ -15,7 +15,7 @@
                 {
                     name: "",
                     formatter: function (a, b, c) {
-                        return "<a  href='#' onclick=\"lo okModal('" + c.id + "')\" >查看详情</a>"
+                        return "<a  href='#' onclick=\"lookModal('" + c.id + "')\" >查看详情</a>"
                     }
                 }
             ],
